@@ -206,19 +206,26 @@ function App() {
       <ul>
         {states.map((state, index) => (
           <li>
-            <button onClick={() => hell(index)}>{state.name}</button>
+            <button id={`state${index + 1}`} onClick={() => hell(index)}>
+              {state.name}
+            </button>
             <ul>
               {listofstates[index] == true
                 ? state.cities.map((city, index1) => (
                     <li>
-                      <button onClick={() => gell(index, index1)}>
+                      <button
+                        id={`city${index1 + 1}`}
+                        onClick={() => gell(index, index1)}
+                      >
                         {city.name}
                       </button>
                       <ul>
                         {listofcities[index][index1] == true
-                          ? city.towns.map((j) => (
+                          ? city.towns.map((j, index2) => (
                               <li>
-                                <button>{j.name}</button>
+                                <button id={`town${index2 + 1}`}>
+                                  {j.name}
+                                </button>
                               </li>
                             ))
                           : null}
