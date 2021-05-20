@@ -16,8 +16,7 @@
     "jest-junit": "^11.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "style-loader": "^1.2.1",
-    "webpack-cli": "^3.3.12"
+    "style-loader": "^1.2.1"
   },
   "jest": {
     "moduleNameMapper": {
@@ -47,6 +46,7 @@
     "jest": "^26.4.2",
     "react-test-renderer": "^16.13.1",
     "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "xml-js": "^1.6.11"
   }

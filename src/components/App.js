@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import "./../styles/App.css";
 
 // Do not alter the states const and values inside it.
@@ -155,7 +155,83 @@ const states = [
 ];
 
 function App() {
-  return <div id="main"></div>;
+  const [visible, change] = useState(false);
+  const [listofstates, x] = useState([false, false, false, false]);
+  const [vis, hange] = useState(false);
+  const [listofcities, y] = useState([
+    [false, false, false],
+    [false, false, false],
+    [false, false, false],
+    [false, false, false],
+  ]);
+  function hell(index) {
+    if (listofstates[index] == true) {
+      listofstates[index] = !listofstates[index];
+      if (visible == false) {
+        change(true);
+      } else {
+        change(false);
+      }
+    } else {
+      listofstates[index] = !listofstates[index];
+      if (visible == false) {
+        change(true);
+      } else {
+        change(false);
+      }
+    }
+  }
+  function gell(index, index1) {
+    if (listofcities[index][index1] == true) {
+      listofcities[index][index1] = !listofcities[index][index1];
+      if (vis == false) {
+        hange(true);
+      } else {
+        hange(false);
+      }
+    } else {
+      listofcities[index][index1] = !listofcities[index][index1];
+      if (vis == false) {
+        hange(true);
+      } else {
+        hange(false);
+      }
+    }
+    console.log(listofstates);
+    console.log(listofcities);
+  }
+
+  return (
+    <div id="main">
+      <ul>
+        {states.map((state, index) => (
+          <li>
+            <button onClick={() => hell(index)}>{state.name}</button>
+            <ul>
+              {listofstates[index] == true
+                ? state.cities.map((city, index1) => (
+                    <li>
+                      <button onClick={() => gell(index, index1)}>
+                        {city.name}
+                      </button>
+                      <ul>
+                        {listofcities[index][index1] == true
+                          ? city.towns.map((j) => (
+                              <li>
+                                <button>{j.name}</button>
+                              </li>
+                            ))
+                          : null}
+                      </ul>
+                    </li>
+                  ))
+                : null}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default App;
